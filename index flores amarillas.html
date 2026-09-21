@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flores Amarillas🌻</title>
+<style>
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(#fdf6e3, #f8e7c9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+.fondo {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+.girasol {
+    position: absolute;
+    animation: caer linear infinite;
+}
+@keyframes caer {
+    0% { transform: translateY(-100px) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
+.container {
+    width: 500px;
+    height: 680px;
+    background: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 2;
+    overflow: visible;
+}
+.decor-flor {
+    position: absolute;
+    width: 180px;
+    z-index: 5;
+    pointer-events: none;
+}
+.flor1 {
+    top: -60px;
+    left: -60px;
+}
+.flor2 {
+    bottom: -60px;
+    right: -60px;
+}
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px;
+}
+.slide.active {
+    display: flex;
+}
+h1 {
+    color: #6b8e23;
+    font-size: 42px;
+    text-align: center;
+}
+.slide p {
+    text-align: center;
+    color: #5c7a2c;
+    font-size: 18px;
+}
+.slide img {
+    width: 460px;
+    max-width: 120%;
+    margin-top: 10px;
+}
+.botones {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.botones button {
+    background: #8fbf5a;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+.carta-slide {
+    justify-content: center;
+    align-items: center;
+}
+.hoja-carta {
+    width: 85%;
+    max-width: 380px;
+    height: 85%;
+    background: #fffef8;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #222;
+    text-align: justify;
+}
+.fecha {
+    text-align: right;
+    margin-bottom: 20px;
+}
+.destinatario {
+    margin-bottom: 15px;
+    text-align: left;
+}
+.hoja-carta p {
+    margin-bottom: 16px;
+}
+.despedida {
+    margin-top: 20px;
+}
+.firma {
+    margin-top: 5px;
+}
+</style>
+</head>
+<body>
+<div class="fondo" id="fondo"></div>
+<div class="container">
+<img class="decor-flor flor1" src="https://mx.pinterest.com/pin/941815340883162956/">
+<img class="decor-flor flor2" src="https://mx.pinterest.com/pin/941815340883162987/"
+<!-- SLIDE 1 -->
+<div class="slide active">
+    <h1>Para Ale 💛</h1>
+    <p>Un pequeño, pero significativo detalle para ti...</p>
+    <img src="https://i.pinimg.com/736x/09/d6/59/09d6591427c8e14397b06ecab9017de4.jpg">
+    <div class="botones">
+        <button onclick="nextSlide()">Siguiente ➜</button>
+    </div>
+</div>
+<div class="slide">
+    <p>Pese a la distancia <br>quiero que recibas tus flores amarillas en este bonito día🌻</p>
+    <img src="https://i.pinimg.com/736x/5e/82/4a/5e824a82825af4e0e878f4960517e3b5.jpg">
+    <div class="botones">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="nextSlide()">→</button>
+    </div>
+</div>
+<div class="slide">
+    <p>Quiero recordarte que has sido muy importante para mi<br>y que te mereces lo mas lindo del mundo💖</p>
+    <img src="https://i.pinimg.com/736x/15/f2/a0/15f2a03b543087186214be7d716c3620.jpg">
+    <div class="botones">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="nextSlide()">→</button>
+    </div>
+</div>
+<div class="slide">
+    <p>Tengo una sorpresa más para ti ✨</p>
+    <img src="https://i.pinimg.com/736x/43/e7/98/43e798ebc28fa84a245c0997434303d0.jpg">
+    <div class="botones">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="goTo(4)">Abrir carta 💌</button>
+    </div>
+</div>
+<div class="slide carta-slide">
+    <div class="hoja-carta">
+        <div class="fecha">21 de septiembre 🌻</div>
+        <p class="destinatario"><strong>Querida Ale, 💛</strong></p>
+<p>
+    Pese a que lo nuestro ha terminado, quiero decirte que aprecio los lindos momentos que pasamos juntos.
+    Y como agradecimiento quiero dedicarte estas lindas palabras que espero puedan significar algo para ti.
+
+</p>
+<p>
+    Aprecio cada momento vivido a tu lado, cada risa y lagrima derramada por ti ha valido totalmente la pena.
+    Me has enseñado el valor del amor, el respeto y la compañia. Se qué nada de lo que haga va a cambiar lo sucedido.
+    Pero quiero que sepas que pretendo cambiar todo lo que está mal conmigo, porque quiero seguir teniendo muchas más
+    experiencias a tu lado, quiero seguir aprendiendo juntos y no me va a importar esperar
+    un millar de años o buscarte en otra vida si es necesario.
+</p>
+<p>
+    Lo que he sentido por ti ha sido lo más sincero que he experimentado en toda mi vida.
+    Cada recuerdo contigo se siente super lindo, aún recuerdo la primera vez que fui a verte, lo nerviosos que estabamos.
+    Como al mirar que venias hacia a mi, corrimos uno al otro y nos abrazamos, por fin podiamos demostrar lo que sentiamos, 
+    sin que nadie se interponiera, sabes que nuestra relación no habría sido perfecta, pero si habría sido muy linda si las
+    circunstancias  hubieran sido distintas, jamás voy a arrepentirme de haberte conocido, al contrario,
+    daría lo que fuera por conocerte una vez más.
+</p>
+<p>
+    Quizás mis palabras ya no tienen tanto valor como antes, pero serán las más sinceras que escucharás, o al menos hasta ahora.
+    Sabes que siempre te voy a desear lo mejor, siempre estaré feliz y encantado por saber de ti, y saber como estas, porque para mi
+    tu has sido la persona mas importante, tengo tantos sueños y te incluí en ellos, me encantaría compartir nuestros logros juntos,
+    pero si tengo que esperar, lo haré sin ninguna duda. Porque te prometí esperarte cien años si fuera necesario, y no pienso incumplir mi promesa.
+</p>
+        <p class="despedida">Con cariño,</p>
+        <p class="firma"><strong>Angel 💛</strong></p>
+    </div>
+    <div class="botones">
+        <button onclick="goTo(0)">🏠 Inicio</button>
+        <button onclick="prevSlide()">←</button>
+    </div>
+</div>
+</div>
+<script>
+let current = 0;
+const slides = document.querySelectorAll(".slide");
+function showSlide(index) {
+    slides[current].classList.remove("active");
+    current = index;
+    slides[current].classList.add("active");
+}
+function nextSlide() {
+    let next = current + 1;
+    if (next >= slides.length) next = 0;
+    showSlide(next);
+}
+function prevSlide() {
+    let prev = current - 1;
+    if (prev < 0) prev = slides.length - 1;
+    showSlide(prev);
+}
+function goTo(index) {
+    showSlide(index);
+}
+const fondo = document.getElementById("fondo");
+for (let i = 0; i < 25; i++) {
+    let flor = document.createElement("img");
+    flor.src = "https://www.pngmart.com/files/4/Sunflower-PNG-HD.png";
+    flor.className = "girasol";
+    flor.style.left = Math.random() * 100 + "vw";
+    flor.style.animationDuration = (5 + Math.random() * 5) + "s";
+    flor.style.width = (25 + Math.random() * 35) + "px";
+    fondo.appendChild(flor);
+}
+</script>
+</body>
+</html>
